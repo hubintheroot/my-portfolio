@@ -20,6 +20,6 @@
 
 📍 Link
 
-* 생성중..
+* https://github.com/hubintheroot/my-portfolio
 <br/>
 <br/>
