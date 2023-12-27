@@ -74,7 +74,7 @@ const data = {
                  컴포넌트의 스타일 관리를 위해 Styled-component와 react-icon 라이브러리를 활용하여 구현했습니다.
                 `,
                 img: 'react_portfolio_img',
-                git: 'https://github.com/hubintheroot/my-portfoilo'
+                git: 'https://github.com/hubintheroot/my-portfolio'
             },
         ]
     }
