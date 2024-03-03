@@ -23,5 +23,3 @@
 * https://github.com/hubintheroot/my-portfolio
 <br/>
 <br/>
-
-https://rootfarmhub.com/sharing/0VPKAFN4M
