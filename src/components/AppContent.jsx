@@ -15,14 +15,14 @@ const data = {
         id: 'skills',
         title: 'My Skills',
         mySkills:[
-            {name:'HTML5', percent: 90, color:'#d6e4f0', isDark:false},
-            {name:'CSS3', percent: 75, color:'#b3d7ff', isDark:false},
-            {name:'BOOTSTRAP', percent: 30, color:'#c6e798', isDark:false},
-            {name:'JAVASCRIPT', percent: 90, color:'#ffd2e2', isDark:false},
-            {name:'VUE.JS', percent: 35, color:'#fff6e1', isDark:false},
-            {name:'REACT.JS', percent: 60, color:'#333333', isDark:true},
-            {name:'jQuery', percent: 35, color:'#bed8e8', isDark:false},
-            {name:'git', percent: 40, color:'#f3ebca', isDark:false},
+            {name:'HTML5', img:'img/mySkills/html5.png'},
+            {name:'CSS3', img:'img/mySkills/css3.png'},
+            {name:'BOOTSTRAP', img:'img/mySkills/bootstrap.png'},
+            {name:'JAVASCRIPT', img:'img/mySkills/javascript.png'},
+            {name:'VUE.JS', img:'img/mySkills/vuejs.png'},
+            {name:'REACT', img:'img/mySkills/react.png'},
+            {name:'jQuery', img:'img/mySkills/jquery.png'},
+            {name:'git', img:'img/mySkills/git.png'},
         ]
     },
     projects: {

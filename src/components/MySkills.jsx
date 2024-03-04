@@ -13,72 +13,76 @@ const StyledTitle = styled.h2`
     margin-bottom: 20px;
 `;
 const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
     width: 100%;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 490px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 30px;
+    }
 `;
+
+const ShakeAnimation = keyframes`
+    0%, 100% {
+        transform: translate(0,0);
+    }
+    25% {
+        transform: translate(2px, 2px);
+    }
+    50% {
+        transform: translate(2px, -2px);
+    }
+    75% {
+        transform: translate(-2px, 2px);
+    }
+`;
+
 const StyledSkillName = styled.span`
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
 `;
-const StyledProgressBar = styled.div`
-    height: 20px;
-    background-color: #f2f2f2;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    border-radius: 10px;
-    overflow: hidden;
+
+const StyledIcon = styled.img`
+    width: 128px;
+    height: 128px;
 `;
-const ProgressAnimation = (percent) => keyframes`
-    from { width: 0%; }
-    to { width: ${percent}%; }
-`;
-const StyledProgress = styled(StyledProgressBar)`
-    width: ${props => `${props.$percent}%` || 0};
-    background-color: ${props => props.$bgc || '#3498db'};
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    animation: ${props => ProgressAnimation(props.$percent)} 5s ease-out;
-`;
-const StyledPercentage = styled.span`
-    font-size: 18px;
-    font-weight: bold;
-    padding-right: 5px;
-    ${props => props.$isDark ? 'color: #fff' : 'color: #000' || 'color: #000'};
-`;
-const StyledProgressBarInfoDiv = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-`;
-const StyledProgressBarInfo = styled.span`
-    font-size: 12px;
-    font-weight: 700;
+
+const StyledIconBox = styled.div`
+    @media screen and (min-width: 768px){
+        &:hover {
+            animation: ${ShakeAnimation} .5s ease-in-out infinite;
+        }
+    }
 `;
 
 export default function MySkills({props}){
     const mySkills = props.mySkills.map((skill, index) => 
-        <StyledContainer key={index}>
-            <StyledSkillName>{skill.name}</StyledSkillName>
-            <StyledProgressBar>
-                <StyledProgress $percent={skill.percent} $bgc={skill.color}>
-                    <StyledPercentage $isDark={skill.isDark}>
-                        {skill.percent} %
-                    </StyledPercentage>
-                </StyledProgress>
-            </StyledProgressBar>
-        </StyledContainer>
+        <StyledIconBox key={index}>
+            <div>
+                <StyledIcon src={skill.img}></StyledIcon>
+            </div>
+            <div>
+                <StyledSkillName>{skill.name}</StyledSkillName>
+            </div>
+        </StyledIconBox>
     );
+    const skillContainer = <StyledContainer>
+        {mySkills}
+    </StyledContainer>;
+
+
     return(
         <StyledDiv>
             <StyledTitle>{props.title}</StyledTitle>
-            <StyledProgressBarInfoDiv>
-                <StyledProgressBarInfo>경험있는</StyledProgressBarInfo>
-                <StyledProgressBarInfo>익숙한</StyledProgressBarInfo>
-            </StyledProgressBarInfoDiv>
-            {mySkills}
+            {skillContainer}
         </StyledDiv>
     )
 }
