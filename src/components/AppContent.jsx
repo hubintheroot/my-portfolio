@@ -1,4 +1,6 @@
 import Container from "./Container"
+import React, { useState } from 'react'
+
 
 const data = {
     about: {
@@ -64,12 +66,17 @@ const data = {
     }
 };
 
+
 export default function AppContent() {
+    const [about, setAbout] = useState(data.about);
+    const [skills, setSkills] = useState(data.skills);
+    const [projects, setProject] = useState(data.projects);
+    
     return(
         <div>
-            <Container props={data.about}/>
-            <Container props={data.skills}/>
-            <Container props={data.projects}/>
+            <Container props={about}/>
+            <Container props={skills}/>
+            <Container props={projects}/>
         </div> 
     )
 }

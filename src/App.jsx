@@ -3,7 +3,7 @@ import AppContent from './components/AppContent';
 import AppFooter from './components/AppFooter';
 import './App.css';
 
-function App() {
+function App() {  
   return (
     <div>
       <AppHeader/>
