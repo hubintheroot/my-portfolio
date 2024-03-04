@@ -29,14 +29,6 @@ const data = {
         id: 'projects',
         projects:[ // TODO: 프로젝트 정보 넣기
             {
-                title: 'TODO LIST',
-                desc: `TODO LIST 관리를 지원하는 웹페이지입니다. 
-                바닐라JS에 익숙해지기 위해 개인 프로젝트로 만들었으며 LocatStorage를 활용하여 
-                CRUD의 CRD를 구현했습니다.`,
-                img: 'todoList_img',
-                git: 'https://github.com/hubintheroot/todoList' 
-            },
-            {
                 title: '월급 계산기',
                 desc: `근로시간을 입력받아 주휴수당이 미포함된 월급 계산기를 제공하는 웹페이지입니다. 
                 vue.js 프레임워크를 활용한 개인 프로젝트로 vue의 props와 emit을 활용하여 컴포넌트 간의 데이터 전달을 
@@ -59,14 +51,6 @@ const data = {
                 모듈화된 컴포넌트로 구현하였으며,12월이 되면 눈 내리는 배경화면으로 변경되는 부분을 구현했습니다.`,
                 img: 'portfolio_img',
                 git: 'https://github.com/hubintheroot/portfolio' 
-            },
-            {
-                title: 'TODO LIST',
-                desc: `리액트를 활용한 개인 프로젝트 TodoList 웹페이지입니다. 
-                리액트의 기본적인 props와 Class형 component를 배운 후 익숙해지기 위해 만들었습니다. 
-                class형 컴포넌트로 구현하고 todo list는 상태관리인 state를 활용하여 CRUD의 CRD를 구현했습니다.`,
-                img: 'todoList_on_react_img',
-                git: 'https://github.com/hubintheroot/todoList-on-react' 
             },
             {
                 title: '포트폴리오',
