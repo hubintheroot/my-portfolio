@@ -56,7 +56,7 @@ const data = {
             },
             {
                 title: '포트폴리오',
-                desc: `바닐라js로 만든 기존의 포트폴리오 사이트를 react를 활용하여 만든 웹페이지입니다. 
+                desc: `바닐라js로 만든 기존의 포트폴리오 사이트 react로 migration한 웹페이지입니다. 
                  컴포넌트의 스타일 관리를 위해 Styled-component와 react-icon 라이브러리를 활용하여 구현했습니다.
                 `,
                 img: 'react_portfolio_img',
