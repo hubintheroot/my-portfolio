@@ -20,6 +20,6 @@
 
 📍 Link
 
-* https://github.com/hubintheroot/my-portfolio
+* https://hubintheroot-portfolio.netlify.app/
 <br/>
 <br/>
