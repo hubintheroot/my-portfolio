@@ -62,6 +62,15 @@ const data = {
                 img: 'react_portfolio_img',
                 git: 'https://github.com/hubintheroot/my-portfolio'
             },
+            {
+                title: '이터널리턴 조회',
+                desc: `게임 이터널리턴의 정보를 제공하는 웹서비스입니다.
+                supabase를 활용하여 캐릭터 정보와 로테이션 정보를 제공하고 있으며, 캐릭터 스킨과 랭크 정보 제공 서비스는 준비 중입니다.
+                라우터를 활용하여 페이지를 보여주고, 가장 먼저 캐릭터 정보를 보여주기 위해서 useNavigate를 활용하여 리다이렉션을 구현했습니다.
+                캐릭터 정렬은 select를 활용하여 '출시 순'과 '가나다 순'으로 나누고, 로테이션 캐릭터들을 먼저 볼 수 있도록 checkbox를 활용했습니다.`,
+                img: 'er-lookup_img',
+                git: 'https://github.com/hubintheroot/eternalRetrun-lookup'
+            },
         ]
     }
 };
