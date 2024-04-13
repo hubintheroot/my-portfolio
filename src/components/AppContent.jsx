@@ -8,8 +8,8 @@ const data = {
         title: 'About Me',
         desc: [
             '안녕하세요.',
-            '해결방안을 도입하기 위한 배움을 즐기는 Frontend 개발자 편상건입니다.',
-            '언어를 문제해결을 위한 도구로 사용하며 사용자 경험을 개선하는 프론트엔드 개발자입니다.'
+            '프론트엔드 개발자 편상건입니다.',
+            '저는 다양한 환경에서 동일한 경험을 제공하는 웹 플랫폼을 통해 사용자의 니즈를 충족시키고, 문제를 해결하는 과정에서 성장하는 것에 보람을 느낍니다. 개발을 통해 사용자에게 더 좋은 경험을 만드는 것이 목표입니다.'
         ],
         github: 'https://github.com/hubintheroot'
     },
@@ -45,14 +45,6 @@ const data = {
                 애니메이션으로 보여줄 수 있도록 구현했습니다.`,
                 img: 'eternalReturn_rotation_img',
                 git: 'https://github.com/hubintheroot/EternalReturn' 
-            },
-            {
-                title: '이전 포트폴리오 웹페이지',
-                desc: `포트폴리오 웹페이지입니다.
-                바닐라JS에 익숙해지기 위해 개인 프로젝트로 만들었으며 가진 기술 스택과 수행한 프로젝트를 소개합니다. 
-                모듈화된 컴포넌트로 구현하였으며,12월이 되면 눈 내리는 배경화면으로 변경되는 부분을 구현했습니다.`,
-                img: 'portfolio_img',
-                git: 'https://github.com/hubintheroot/portfolio' 
             },
             {
                 title: '포트폴리오',
