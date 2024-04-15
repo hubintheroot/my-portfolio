@@ -32,11 +32,14 @@ const ProjectCard = styled.a`
     text-decoration: none;
     @media screen and (min-width: 768px){
         margin: 0;
-        height: 360px;
+        height: 380px;
         &:hover > div > img{
             transform: scale(1.2, 1.2);
             transition-duration: 0.5s;
         }
+    }
+    @media screen and (min-width: 1225px){
+        height: 360px;
     }
 `;
 const ProjectImgBox = styled.div`
