@@ -1,62 +1,62 @@
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const Div = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 `;
-const StyledContainer = styled(StyledDiv)`
+const Container = styled(Div)`
     @media screen and (min-width: 768px){
         margin-top: 20px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 380px;
+        grid-auto-rows: 1fr;
         grid-gap: 30px;
     }
 `
-const StyledTitle = styled.h2`
+const Title = styled.h2`
     font-size: 32px;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
 `;
-const StyledProjectCard = styled.div`
+const ProjectCard = styled.a`
+    width: 100%;
     background-color: #fff;
     color: #000;
     border-radius: 8px;
     margin-bottom: 40px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     overflow: hidden;
+    text-decoration: none;
     @media screen and (min-width: 768px){
-        max-width: 400px;
-        min-height: 380px;
-        max-height: 380px;
         margin: 0;
-        &:hover > img{
-            max-height: 50px;
-            transition: max-height .4s linear;
-        }
-        &:hover > div > p {
-            max-height: 205px;
-            height: 205px;
-            transition: height .4s linear;
+        height: 360px;
+        &:hover > div > img{
+            transform: scale(1.2, 1.2);
+            transition-duration: 0.5s;
         }
     }
 `;
-const StyledProjectImg = styled.img`
+const ProjectImgBox = styled.div`
+    height: 200px;
+    overflow: hidden;
+`
+const ProjectImg = styled.img`
     width: 100%;
-    max-height: 150px;
-    height: 150px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease 0s;
 `;
-const StyledInfoContainer = styled.div`
+const InfoContainer = styled.div`
     padding: 20px;
+    text-align: left;
     @media screen and (min-width: 768px){
         padding-top: 0;
     }
 `;
-const StyledProjectTitle = styled.h2`
+const ProjectTitle = styled.h2`
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -64,54 +64,58 @@ const StyledProjectTitle = styled.h2`
         margin: 6px 0px;
     }
 `;
-const StyledProjectDesc = styled.p`
+const ProjectDesc = styled.p`
     font-size: 16px;
     margin-bottom: 15px;
     @media screen and (min-width: 768px){
-        max-height: 105px;
-        height: 105px;
         overflow-y: hidden;
     }
 `;
-const StyledProjectButton = styled.button`
-    width: 100%;
-    padding: 10px;
-    white-space: pre-wrap;
-    text-align: center;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: 700;
-    font-size: 18px;
-    cursor: pointer;
+const ProjectStackBox = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+`
+const ProjectStack = styled.li`
+    font-size: 14px;
+    list-style: none;
+    margin-top: 2px;
+    margin-right: 6px;
+    padding: 4px 6px;
+    border: 1px solid #000;
+    border-radius: 12px;
+    &::before{
+        content: '#';
+    }
+    
 `;
-const openURL = (url) => {
-    window.open(url, '_blank');
-}
 // 프로젝트를 담을 div
-const ProjectCard = (pj, index) => (
-    <StyledProjectCard key={index}>
-        <StyledProjectImg
-            src={`${process.env.PUBLIC_URL}/public_assets/projectImgs/${pj.img}.jpg`}
-            alt={`${pj.title} screenshot image`}
-        />
-        <StyledInfoContainer>
-            <StyledProjectTitle>{pj.title}</StyledProjectTitle>
-            <StyledProjectDesc className='description'>{pj.desc}</StyledProjectDesc>
-            <StyledProjectButton onClick={() => {openURL(pj.git);}}>GitHub</StyledProjectButton>
-        </StyledInfoContainer>
-    </StyledProjectCard>);
+const ProjectCards = (pj, index) => (
+    <ProjectCard key={index} href={pj.git} target='_blank'>
+        <ProjectImgBox>
+            <ProjectImg
+                src={`/public_assets/projectImgs/${pj.img}.jpg`}
+                alt={`${pj.title} screenshot image`}
+            />
+        </ProjectImgBox>
+        <InfoContainer>
+            <ProjectTitle>{pj.title}</ProjectTitle>
+            <div><ProjectDesc>{pj.desc}</ProjectDesc></div>
+            <ProjectStackBox>{pj.stack && pj.stack.map((stack) => <ProjectStack>{stack}</ProjectStack>)}</ProjectStackBox>
+        </InfoContainer>
+    </ProjectCard>);
 
 
 export default function Projects({props}){
-    const projects = props.projects.map((pj, index) => ProjectCard(pj, index));
+    const projects = props.projects.map((pj, index) => ProjectCards(pj, index));
     return(
-        <StyledDiv>
-            <StyledTitle>{props.id}</StyledTitle>
-            <StyledContainer>
+        <Div>
+            <Title>{props.id}</Title>
+            <Container>
                 {projects}
-            </StyledContainer>
-        </StyledDiv>
+            </Container>
+        </Div>
     )
 }

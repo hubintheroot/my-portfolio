@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
 `;
 const StyledTitle = styled.h2`
     font-size: 32px;
@@ -13,11 +13,12 @@ const StyledTitle = styled.h2`
     color: #333;
     margin-bottom: 20px;
 `;
-const StyledDesc = styled.span`
+const StyledDesc = styled.p`
     font-size: 18px;
     line-height: 1.5;
     color: #555;
-    max-width: 600px;
+    max-width: 750px;
+    white-space: pre-line;
 `;
 const ShakeAnimation = keyframes`
     0%, 100% {
