@@ -42,7 +42,8 @@ const Icon = styled.div`
 `;
 const H3 = styled.h3`
     margin: 0;
-    padding: 0;
+    padding: .5rem 0 0;
+    text-align: center;
     font-size: ${(props) => props.$textSize ? props.$textSize + 'px' : '1.1rem'};
     font-weight: 600;
     word-break: keep-all;
