@@ -141,18 +141,22 @@ export default function ProjectInfo() {
     const data = props.state;
     useEffect(() => {
         if (data === null){
+            console.log('data is null');
             navigate('/forbidden');
         }
     }, [navigate, data]);
-    
+
+    if(data === null){
+        return null;
+    }
+
     const home = '/';
 
-    const prettyStack = data && data.pj.stack.map((stack, index) => <Li key={index}>{stack}</Li>);
-    const useTools = data && data.pj.workInfo.useTools.map((tool, index) => <Li key={index} $color={true} $borderColor={true} $borderRadius={true}>{tool}</Li>);
-    // const useTools = data && data.pj.workInfo.useTools.toString().replace(',',', ');
+    const prettyStack = data.pj && data.pj.stack.map((stack, index) => <Li key={index}>{stack}</Li>);
+    const useTools = data.pj && data.pj.workInfo.useTools.map((tool, index) => <Li key={index} $color={true} $borderColor={true} $borderRadius={true}>{tool}</Li>);
+    
 
     return (
-
         <>
             <UnderConstruction>
                 <div>
