@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -21,7 +22,7 @@ const Title = styled.h2`
     color: #333;
     margin-bottom: 20px;
 `;
-const ProjectCard = styled.a`
+const ProjectCard = styled(Link)`
     width: 100%;
     background-color: #fff;
     color: #000;
@@ -92,27 +93,34 @@ const ProjectStack = styled.li`
     &::before{
         content: '#';
     }
-    
 `;
-// 프로젝트를 담을 div
-const ProjectCards = (pj, index) => (
-    <ProjectCard key={index} href={pj.git} target='_blank'>
-        <ProjectImgBox>
-            <ProjectImg
-                src={`/public_assets/projectImgs/${pj.img}.jpg`}
-                alt={`${pj.title} screenshot image`}
-            />
-        </ProjectImgBox>
-        <InfoContainer>
-            <ProjectTitle>{pj.title}</ProjectTitle>
-            <div><ProjectDesc>{pj.desc}</ProjectDesc></div>
-            <ProjectStackBox>{pj.stack && pj.stack.map((stack) => <ProjectStack>{stack}</ProjectStack>)}</ProjectStackBox>
-        </InfoContainer>
-    </ProjectCard>);
+
 
 
 export default function Projects({props}){
+    
+    const handleScrollAnchor = () => {
+        sessionStorage.setItem('anchor', window.scrollY);
+    };
+    
+    // 프로젝트를 담을 div
+    const ProjectCards = (pj, index) => (
+        <ProjectCard key={index} to={`projects/${pj.id}`} state={{ pj }} onClick={handleScrollAnchor}>
+            <ProjectImgBox>
+                <ProjectImg
+                    src={pj.img}
+                    alt={`${pj.title} screenshot image`}
+                    />
+            </ProjectImgBox>
+            <InfoContainer>
+                <ProjectTitle>{pj.title}</ProjectTitle>
+                <div><ProjectDesc>{pj.desc}</ProjectDesc></div>
+                <ProjectStackBox>{pj.stack && pj.stack.map((stack, index) => <ProjectStack key={index}>{stack}</ProjectStack>)}</ProjectStackBox>
+            </InfoContainer>
+        </ProjectCard>);
+
     const projects = props.projects.map((pj, index) => ProjectCards(pj, index));
+
     return(
         <Div>
             <Title>{props.id}</Title>

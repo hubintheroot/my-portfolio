@@ -1,15 +1,14 @@
-import AppHeader from './components/AppHeader';
-import AppContent from './components/AppContent';
-import AppFooter from './components/AppFooter';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
+import { RouterInfo } from './util/router';
+
+const router = createBrowserRouter(RouterInfo);
 
 function App() {  
   return (
-    <div>
-      <AppHeader/>
-      <AppContent/>
-      <AppFooter/>
-    </div>
+    <>
+        <RouterProvider router={router}/>
+    </>
   );
 }
 
