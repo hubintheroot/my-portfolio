@@ -141,7 +141,6 @@ export default function ProjectInfo() {
     const data = props.state;
     useEffect(() => {
         if (data === null){
-            console.log('data is null');
             navigate('/forbidden');
         }
     }, [navigate, data]);
