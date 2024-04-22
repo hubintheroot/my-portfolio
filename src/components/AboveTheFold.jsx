@@ -28,7 +28,6 @@ const IconBox = styled.div`
     left: calc(50% - 5vw);
 `;
 export default function AboveTheFold() {
-    console.log('above the fold is online.');
     const [size, setSize] = useState({ // eslint-disable-line no-unused-vars
         width: 25,
         textSize: 16
