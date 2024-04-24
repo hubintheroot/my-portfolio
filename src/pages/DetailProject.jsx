@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Container = styled.article`
     width: 60rem;
-    margin: 0 auto;
+    margin: 120px auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
