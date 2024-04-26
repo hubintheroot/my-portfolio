@@ -6,14 +6,21 @@ const Div = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+    @media screen and (max-width: 768px){
+        align-items: flex-start;
+    }
 `;
 const Container = styled(Div)`
-    @media screen and (min-width: 768px){
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 1fr;
-        grid-gap: 30px;
+    box-sizing: border-box;
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 30px;
+
+    @media screen and (max-width: 768px){
+        padding: 0 1rem;
+        display: flex;
     }
 `
 const Title = styled.h2`
@@ -63,9 +70,9 @@ const InfoContainer = styled.div`
 const ProjectTitle = styled.h2`
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
-    @media screen and (min-width: 768px){
-        margin: 6px 0px;
+    margin: 6px 0px;
+    @media screen and (max-width: 768px){
+        margin-bottom: 10px;
     }
 `;
 const ProjectDesc = styled.p`

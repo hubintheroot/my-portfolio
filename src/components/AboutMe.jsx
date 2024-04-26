@@ -6,6 +6,9 @@ const StyledDiv = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: left;
+    @media screen and (max-width: 768px){
+        align-items: flex-start;
+    }
 `;
 const StyledTitle = styled.h2`
     font-size: 32px;
@@ -20,6 +23,7 @@ const StyledDesc = styled.p`
     max-width: 750px;
     white-space: pre-line;
     word-break: keep-all;
+    
 `;
 
 export default function AboutMe({props}){

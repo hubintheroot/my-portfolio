@@ -7,13 +7,14 @@ const Header = styled.header`
     width: 100%;
     top: 0;
     left: 0;
-    @media screen and (min-width: 480px){
-        height: 100px;
-        background-color: rgba(0, 0, 0, 0);
-        transition: background-color .3s;
-        &:hover{
-            background-color: rgba(0, 0, 0, .2);
-        }
+    height: 8rem;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color .3s;
+    &:hover{
+        background-color: rgba(0, 0, 0, .2);
+    }
+    @media screen and (max-width: 768px){
+        height: 4rem;
     }
 `;
 const Container = styled.div`
@@ -21,9 +22,17 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     color: #000;
+    
+    @media screen and (max-width: 768px){
+        padding: 0 2rem;
+        border-bottom: 0.1rem solid #000;
+        backdrop-filter: blur(0.5rem);
+        -webkit-backdrop-filter: blur(0.5rem);
+    }
 
     @media screen and (min-width: 1200px){
         width: 1200px;

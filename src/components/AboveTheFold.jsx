@@ -18,14 +18,20 @@ const IntroBox = styled.div`
         padding: 0;
         font-weight: 700;
         font-size: 5rem;
+        @media screen and (max-width: 768px){
+            text-align: center;
+        }
     }
 `;
 const IconBox = styled.div`
-    width: 10vw;
+    width: 10rem;
     margin: 0 auto;
     position: absolute;
     bottom: 2vh;
-    left: calc(50% - 5vw);
+    left: calc(50% - 5rem);
+    @media screen and (max-width: 768px){
+        z-index: -1;
+    }
 `;
 export default function AboveTheFold() {
     const [size, setSize] = useState({ // eslint-disable-line no-unused-vars

@@ -16,28 +16,39 @@ const Container = styled.article`
         margin-top: 5rem;
     }
 
-    @media screen and (max-width: 999px) {
-        display: none;
+    @media screen and (max-width: 768px) {
+        width: 100vw;
+        box-sizing: border-box;
+        padding: 0 1.5rem;
+        margin: 5rem 0;
     }
 `;
 const UnderConstruction = styled.article`
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media screen and (min-width: 1000px){
-        display: none;
-    }
+    display: none;
 `;
 const Div = styled.div`
     margin-top: ${(props) => props.$demo ? '7rem' : '.8rem'};
     text-align: ${(props) => props.$textalign};
+
+    @media screen and (max-width: 768px){
+      margin-top: ${(props) => props.$demo ? '3rem' : '0'};
+    }
 `;
+const ButtonContainer = styled(Div)`
+    @media screen and (max-width: 768px){
+        display: flex;
+        flex-direction: column;
+    }
+`
 const Title = styled.h2`
     font-size: 2rem;
     font-weight: bold;
     text-align: left;
     margin: 0;
+
+    @media screen and (max-width: 768px){
+      padding: 1rem 0;
+    }
 `;
 const Ul = styled.ul`
     list-style: none;
@@ -45,13 +56,18 @@ const Ul = styled.ul`
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 0;
+    gap: 0.5rem;
     margin-top: ${(props) => props.$marginTop ? null : '2rem'};
+
+    @media screen and (max-width: 768px){
+      gap: 0.3rem;
+    }
 `;
 const Li = styled.li`
     font-size: 14px;
     list-style: none;
-    margin-top: 2px;
-    margin-right: 6px;
+    /* margin-top: 2px; */
+    /* margin-right: 6px; */
     padding: 4px 6px;
     color: ${(props) => props.$color ? '#2a7fa7' : null};
     border: 1px solid;
@@ -70,9 +86,15 @@ const A = styled(Link)`
     color: #fff;
     background-color: #000;
     box-sizing: border-box;
+    margin-left: ${(props) => props.$marginLeft ? props.$marginLeft + 'rem' : null};
     &:hover {
         background-color: rgba(0,0,0,.5);
         transition: background-color .3s;
+    }
+
+    @media screen and (max-width: 768px){
+      margin: 1rem 0 0;
+      border-radius: 5rem;
     }
 `;
 const ImgBox = styled.div`
@@ -83,6 +105,9 @@ const Img = styled.img`
     box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 0px 3px;
     width: 100%;
     height: 100%;
+    @media screen and (max-width: 768px){
+      border-radius: 2rem;
+    }
 `;
 const DetailInfoBox = styled.div`
     text-align: left;
@@ -92,10 +117,32 @@ const DetailInfoBox = styled.div`
         padding: 0;
         line-height: 2;
         font-size: 1.1rem;
+
+        @media screen and (max-width: 768px){
+            margin-top: 1rem;
+            & > li {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                border: 0.1rem solid #000;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+                & > span {
+                    border-bottom: 0.1rem solid #000;
+                }
+            }
+        }
     }
 
     & > ul > li:last-child{
         display: flex;
+        @media screen and (max-width: 768px){
+            flex-direction: column;
+            margin-bottom: 0;
+            & > ul {
+                padding: 1rem 0.5rem 0;
+            }
+        }
     }
 `;
 const SubTitle = styled.h4`
@@ -110,6 +157,9 @@ const DetailP = styled.p`
     font-size: 1.1rem;
     margin-top: 2rem;
     line-height: 2;
+    @media screen and (max-width: 768px){
+      margin-top: 1rem;
+    }
 `;
 const Span = styled.span`
     display: inline-block;
@@ -168,7 +218,10 @@ export default function ProjectInfo() {
                     <Title>{data && data.pj.title}</Title>
                     <Div $textalign='left'>{data && data.pj.desc}</Div>
                     <Ul>{prettyStack}</Ul>
-                    <Div $demo='true'><A to={data.pj.demo}>사이트 보러가기</A></Div>
+                    <ButtonContainer $demo='true'>
+                        <A to={data.pj.demo}>사이트 보러가기</A>
+                        <A to={data.pj.git} $marginLeft='1'>코드 보러가기</A>
+                    </ButtonContainer>
                 </div>
                 <ImgBox>
                     <Img src={data.pj.img} alt=""/>
