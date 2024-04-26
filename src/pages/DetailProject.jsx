@@ -23,9 +23,6 @@ const Container = styled.article`
         margin: 5rem 0;
     }
 `;
-const UnderConstruction = styled.article`
-    display: none;
-`;
 const Div = styled.div`
     margin-top: ${(props) => props.$demo ? '7rem' : '.8rem'};
     text-align: ${(props) => props.$textalign};
@@ -206,13 +203,6 @@ export default function ProjectInfo() {
     
 
     return (
-        <>
-            <UnderConstruction>
-                <div>
-                    <h1>Under Construction</h1>
-                    <p>모바일 화면을 준비중입니다.</p>
-                </div>
-            </UnderConstruction>
             <Container>
                 <div>
                     <Title>{data && data.pj.title}</Title>
@@ -241,6 +231,5 @@ export default function ProjectInfo() {
                 <GoBackBtn to={home} onClick={() => { sessionStorage.setItem('gobackEvent', true)}}>목록으로 돌아가기</GoBackBtn>
                 
             </Container>
-        </>
     )
 }
