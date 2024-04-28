@@ -209,7 +209,7 @@ export default function ProjectInfo() {
                     <Div $textalign='left'>{data && data.pj.desc}</Div>
                     <Ul>{prettyStack}</Ul>
                     <ButtonContainer $demo='true'>
-                        <A to={data.pj.demo}>사이트 보러가기</A>
+                        {data.pj.demo ? <A to={data.pj.demo}>사이트 보러가기</A> : null}
                         <A to={data.pj.git} $marginLeft='1'>코드 보러가기</A>
                     </ButtonContainer>
                 </div>

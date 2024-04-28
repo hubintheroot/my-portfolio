@@ -45,7 +45,7 @@ export default function Root(){
                     stack: ['react', 'styled-component', 'react-icon', 'react-router-dom'],
                     img: '/public_assets/projectImgs/portfolio_img.png',
                     git: 'https://github.com/hubintheroot/my-portfolio',
-                    demo: 'https://hubintheroot-portfolio.netlify.app/',
+                    // demo: 'https://hubintheroot-portfolio.netlify.app/',
                     descDetail: '깔끔하고 직관적인 정보 전달을 위해 Styled-Component와 react-icon을 활용하여 디자인했습니다.\n프로젝트 디테일 페이지로 이동할 때 useLocation을 통해 전달받은 데이터를 활용했으며, url을 통해 접속할 경우 데이터를 받지 못하는 문제를 해결하기 위해 useEffect와 useNavigate를 활용하여 url접근을 막았습니다.',
                     workInfo: {date: '2023.10 ~ ', worked: '디자인 및 기능 구현', useTools: ['react.js', 'Styled-component', 'react-icon', 'react-router-dom', 'Git']}
                 },
