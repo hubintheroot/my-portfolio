@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Header = styled.header`
     position: fixed;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
     top: 0;
     left: 0;
     height: 8rem;
@@ -23,22 +25,23 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    width: 100%;
+    width: 1200px;
     height: 100%;
     color: #000;
+    margin: 0 auto;
+    
+    @media screen and (max-width: 1200px){
+        width: 80vw;
+    }
     
     @media screen and (max-width: 768px){
         padding: 0 2rem;
         border-bottom: 0.1rem solid #000;
         backdrop-filter: blur(0.5rem);
         -webkit-backdrop-filter: blur(0.5rem);
+        width: 100vw;
     }
 
-    @media screen and (min-width: 1200px){
-        width: 1200px;
-        margin: 0 auto;
-
-    }
 `
 const MenuBox = styled.div`
     list-style: none;
