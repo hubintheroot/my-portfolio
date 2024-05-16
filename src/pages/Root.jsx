@@ -45,10 +45,10 @@ export default function Root(){
                     stack: ['react', 'styled-component', 'react-icon', 'react-router-dom'],
                     img: '/public_assets/projectImgs/portfolio_img.png',
                     git: 'https://github.com/hubintheroot/my-portfolio',
-                    // demo: 'https://hubintheroot-portfolio.netlify.app/',
                     descDetail: '깔끔하고 직관적인 정보 전달을 위해 Styled-Component와 react-icon을 활용하여 디자인했습니다.\n프로젝트 디테일 페이지로 이동할 때 useLocation을 통해 전달받은 데이터를 활용했으며, url을 통해 접속할 경우 데이터를 받지 못하는 문제를 해결하기 위해 useEffect와 useNavigate를 활용하여 url접근을 막았습니다.',
                     workInfo: {date: '2023.10 ~ ', worked: '디자인 및 기능 구현', useTools: ['react.js', 'Styled-component', 'react-icon', 'react-router-dom', 'Git']}
                 },
+                // 진행중인 프로젝트
                 {
                     id: 4,
                     title: 'eternalreturn-lookup',
@@ -57,7 +57,7 @@ export default function Root(){
                     img: '/public_assets/projectImgs/er-lookup_img.png',
                     git: 'https://github.com/hubintheroot/eternalRetrun-lookup',
                     demo: 'https://eternalreturn-lookup.netlify.app/',
-                    descDetail: '금주의 로테이션 정보와 캐릭터 정보, 랭크 검색을 제공하는 웹사이트를 목표로 한 프로젝트입니다.\n로테이션 정보는 백엔드에서 주기적으로 supabase를 업데이트하고, 프론트에서 supabase의 데이터를 가져오는 방식으로 구현했습니다.\n금주의 로테이션 정보의 디자인은 깔끔하게 느껴지는 dak.gg를 참고했습니다.',
+                    descDetail: '금주의 로테이션 정보와 캐릭터 정보, 랭크 검색을 제공하는 웹사이트를 목표로 한 프로젝트입니다.\n로테이션 정보는 백엔드에서 주기적으로 supabase를 업데이트하고, 프론트에서 supabase의 데이터를 가져오는 방식으로 구현했습니다.\n금주의 로테이션 정보의 디자인은 깔끔하게 느껴지는 dak.gg를 참고했습니다.\n 실험체 목록에 스켈레톤 UI를 적용하여 이미지를 로딩하는 부분의 사용자경험을 개선했습니다.',
                     workInfo: {date: '2024.3 ~ ', worked: '기능 구현', useTools: ['react.js', 'Styled-component', 'react-icon', 'react-router-dom', 'django', 'Git']}
                 },
             ]
@@ -65,6 +65,7 @@ export default function Root(){
     };
     const [ data, setData ] = useState(tmpData); // eslint-disable-line no-unused-vars
     const { pathname } = useLocation();
+    
     useEffect(() => {
         if(sessionStorage.gobackEvent){
             window.scrollTo(0, sessionStorage.anchor);
