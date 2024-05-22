@@ -56,8 +56,8 @@ export default function Root(){
                     stack: ['react', 'react-router-dom', 'styled-components', 'supabase', 'django'],
                     img: '/public_assets/projectImgs/er-lookup_img.png',
                     git: 'https://github.com/hubintheroot/eternalRetrun-lookup',
-                    demo: 'https://eternalreturn-lookup.netlify.app/',
-                    descDetail: '금주의 로테이션 정보와 캐릭터 정보, 랭크 검색을 제공하는 웹사이트를 목표로 한 프로젝트입니다.\n로테이션 정보는 백엔드에서 주기적으로 supabase를 업데이트하고, 프론트에서 supabase의 데이터를 가져오는 방식으로 구현했습니다.\n금주의 로테이션 정보의 디자인은 깔끔하게 느껴지는 dak.gg를 참고했습니다.\n 실험체 목록에 스켈레톤 UI를 적용하여 이미지를 로딩하는 부분의 사용자경험을 개선했습니다.',
+                    demo: 'https://eternalreturn-lookup.pages.dev/',
+                    descDetail: '금주의 로테이션 정보와 캐릭터 정보, 랭크 검색을 제공하는 웹사이트를 목표로 한 프로젝트입니다.\n로테이션 정보는 백엔드에서 주기적으로 supabase를 업데이트하고, 프론트에서 supabase의 데이터를 가져오는 방식으로 구현했습니다.\n금주의 로테이션 정보의 디자인은 깔끔하게 느껴지는 dak.gg를 참고했습니다.\n 스켈레톤 UI를 적용하여 이미지를 로딩하는 부분의 사용자경험을 개선했습니다.',
                     workInfo: {date: '2024.3 ~ ', worked: '기능 구현', useTools: ['react.js', 'Styled-component', 'react-icon', 'react-router-dom', 'django', 'Git']}
                 },
             ]
