@@ -32,10 +32,14 @@ const SubTitleBox = styled.div`
   margin-bottom: 0.8rem;
   background-color: rgb(51, 51, 51);
   color: rgb(255, 255, 255);
-  cursor: default;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    cursor: default;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
 `;
 
 export default function Skills(props) {

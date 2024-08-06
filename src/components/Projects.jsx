@@ -14,29 +14,23 @@ const Container = styled(Div)`
   grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-auto-rows: 1fr;
   grid-gap: 2rem;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
   }
 `;
-const Title = styled.h2`
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
-    margin: 1rem 0;
-  }
-`;
+
 const TitleBox = styled.div`
   border-radius: 8px;
   padding: 0.5rem 1.2rem;
-  margin: 0 1rem 0.8rem;
-
+  margin-bottom: 0.8rem;
+  text-align: center;
   background-color: rgb(51, 51, 51);
   color: rgb(255, 255, 255);
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    text-align: left;
     cursor: default;
     user-select: none;
     -moz-user-select: none;
@@ -152,7 +146,7 @@ export default function Projects(props) {
   return (
     <Div>
       <TitleBox>
-        <Title>프로젝트</Title>
+        <h2>프로젝트</h2>
       </TitleBox>
       <Container>{projectData}</Container>
     </Div>
