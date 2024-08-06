@@ -2,10 +2,10 @@ HTML {
   /* scroll-behavior: smooth; */
 }
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   scrollbar-width: none;
 }
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 .App-logo {

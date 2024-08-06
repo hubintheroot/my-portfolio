@@ -1,13 +1,13 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './App.css';
-import { RouterInfo } from './util/router';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import { RouterInfo } from "./util/router";
 
 const router = createBrowserRouter(RouterInfo);
 
-function App() {  
+function App() {
   return (
     <>
-        <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </>
   );
 }

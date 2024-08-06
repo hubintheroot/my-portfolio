@@ -4,12 +4,14 @@ import Forbidden from "../pages/ForbiddenPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Root from "../pages/Root";
 
-export const RouterInfo = [{
-    element: <Root/>,
+export const RouterInfo = [
+  {
+    element: <Root />,
     children: [
-        {path: '*', element: <NotFoundPage/>},
-        {path: '/', element: <AppContent/>},
-        {path: '/forbidden', element: <Forbidden/>},
-        {path: '/projects/:id', element: <ProjectInfo/>},
-    ]
-}];
+      { path: "*", element: <NotFoundPage /> },
+      { path: "/", element: <AppContent /> },
+      { path: "/forbidden", element: <Forbidden /> },
+      { path: "/projects/:id", element: <ProjectInfo /> },
+    ],
+  },
+];
