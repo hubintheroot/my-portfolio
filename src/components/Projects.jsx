@@ -2,9 +2,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   @media screen and (max-width: 768px) {
     align-items: flex-start;
@@ -14,33 +11,48 @@ const Container = styled(Div)`
   box-sizing: border-box;
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-auto-rows: 1fr;
-  grid-gap: 30px;
+  grid-gap: 2rem;
+  padding: 0 1rem;
 
-  @media screen and (max-width: 768px) {
-    padding: 0 1rem;
-    display: flex;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
   }
 `;
 const Title = styled.h2`
   font-size: 32px;
   font-weight: bold;
-  color: #333;
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin: 1rem 0;
+  }
+`;
+const TitleBox = styled.div`
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  margin: 0 1rem 0.8rem;
+
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+  @media screen and (max-width: 768px) {
+    cursor: default;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+  }
 `;
 const ProjectCard = styled(Link)`
   width: 100%;
   background-color: #fff;
   color: #000;
   border-radius: 8px;
-  margin-bottom: 40px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   overflow: hidden;
   text-decoration: none;
   @media screen and (min-width: 768px) {
-    margin: 0;
     height: 380px;
     &:hover > div > img {
       transform: scale(1.2, 1.2);
@@ -139,7 +151,9 @@ export default function Projects(props) {
 
   return (
     <Div>
-      <Title>{data.id}</Title>
+      <TitleBox>
+        <Title>프로젝트</Title>
+      </TitleBox>
       <Container>{projectData}</Container>
     </Div>
   );

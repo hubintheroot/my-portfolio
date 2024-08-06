@@ -26,6 +26,17 @@ const Level = styled.li`
   list-style: none;
   padding-bottom: 0.5rem;
 `;
+const SubTitleBox = styled.div`
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 0.8rem;
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+  cursor: default;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+`;
 
 export default function Skills(props) {
   const skills = props.skills;
@@ -39,5 +50,12 @@ export default function Skills(props) {
     );
   });
 
-  return <Container>{contents}</Container>;
+  return (
+    <Container>
+      <SubTitleBox>
+        <h2>기술스택</h2>
+      </SubTitleBox>
+      {contents}
+    </Container>
+  );
 }

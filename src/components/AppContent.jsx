@@ -7,7 +7,7 @@ import AboveTheFold from "./AboveTheFold";
 import Skills from "./Skills";
 
 const Container = styled.section`
-  margin: 0 8px;
+  margin: 3rem 8px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
