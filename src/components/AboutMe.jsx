@@ -3,13 +3,13 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   width: 100%;
   text-align: left;
   white-space: pre-line;
   margin: 0;
-  @media screen and (max-width: 768px) {
-    align-items: flex-start;
+  @media screen and (min-width: 768px) {
+    align-items: left;
   }
 `;
 const StyledTitle = styled.h2`
@@ -28,9 +28,6 @@ const Desc = styled.p`
 `;
 
 export default function AboutMe(props) {
-  // const descript = props.desc.map((text, index) => (
-  //   <StyledDesc key={index}>{text}</StyledDesc>
-  // ));
   const data = props.about;
 
   return (

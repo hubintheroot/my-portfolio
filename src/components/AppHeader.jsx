@@ -3,20 +3,21 @@ import { FaGithub } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Header = styled.header`
+  z-index: 999;
   position: fixed;
   display: flex;
   justify-content: center;
   width: 100vw;
   top: 0;
   left: 0;
-  height: 8rem;
+  height: 4rem;
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.3s;
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
-  @media screen and (max-width: 768px) {
-    height: 4rem;
+  @media screen and (min-width: 768px) {
+    height: 8rem;
   }
 `;
 const Container = styled.div`

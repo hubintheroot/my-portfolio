@@ -24,18 +24,19 @@ const Container = styled.article`
   }
 `;
 const Div = styled.div`
-  margin-top: ${(props) => (props.$demo ? "2rem" : ".8rem")};
+  margin-top: ${(props) => (props.$demo ? "3rem" : "0")};
   text-align: ${(props) => props.$textalign};
-
-  @media screen and (max-width: 768px) {
-    margin-top: ${(props) => (props.$demo ? "3rem" : "0")};
+  @media screen and (min-width: 768px) {
+    margin-top: ${(props) => (props.$demo ? "2rem" : ".8rem")};
   }
 `;
 const FirstViewBox = styled.div`
   margin-bottom: 2rem;
+
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
     gap: 5rem;
   }
 `;
@@ -44,15 +45,20 @@ const ButtonContainer = styled(Div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+  }
 `;
 const Title = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   text-align: left;
+  padding: 1rem 0;
   margin: 0;
-
-  @media screen and (max-width: 768px) {
-    padding: 1rem 0;
+  @media screen and (min-width: 768px) {
+    padding: 0;
   }
 `;
 const Ul = styled.ul`
@@ -94,11 +100,7 @@ const Li = styled.li`
 `;
 const A = styled(Link)`
   border-radius: 1.2rem;
-  padding: 0.8rem 1.4rem;
-  height: 4rem;
-  display: inherit;
-  justify-content: center;
-  align-items: center;
+  padding: 1.4rem;
   word-break: keep-all;
   text-decoration: none;
   font-size: 1.1rem;
@@ -136,25 +138,36 @@ const Img = styled.img`
   }
 `;
 const DetailInfoBox = styled.div`
+  position: relative;
   text-align: left;
   & > ul {
+    margin-top: 1rem;
     list-style: none;
-    margin: 2rem 0 0;
     padding: 0;
     line-height: 2;
     font-size: 1.1rem;
 
-    @media screen and (max-width: 768px) {
-      margin-top: 1rem;
+    & > li {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border: 0.1rem solid #000;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      & > span {
+        border-bottom: 0.1rem solid #000;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-top: 2rem;
       & > li {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        border: 0.1rem solid #000;
-        border-radius: 1rem;
-        margin-bottom: 1rem;
+        flex-direction: row;
+        padding: 0;
+        border: 0;
+        margin-bottom: 0;
         & > span {
-          border-bottom: 0.1rem solid #000;
+          border-bottom: 0;
         }
       }
     }
@@ -162,12 +175,10 @@ const DetailInfoBox = styled.div`
 
   & > ul > li:last-child {
     display: flex;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      margin-bottom: 0;
-      & > ul {
-        padding: 1rem 0.5rem 0;
-      }
+    flex-direction: column;
+    margin-bottom: 0;
+    & > ul {
+      padding: 1rem 0.5rem 0;
     }
   }
 `;
@@ -181,10 +192,10 @@ const DetailDesc = styled.p`
   white-space: pre-line;
   word-break: keep-all;
   font-size: 1.1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   line-height: 2;
-  @media screen and (max-width: 768px) {
-    margin-top: 1rem;
+  @media screen and (min-width: 768px) {
+    margin-top: 2rem;
   }
 `;
 const Span = styled.span`
@@ -263,7 +274,7 @@ const ProblemBox = styled.div`
   }
 `;
 
-export default function ProjectInfo() {
+export default function ProjectDetail() {
   const props = useLocation();
   const navigate = useNavigate();
   const data = props.state;
@@ -289,8 +300,8 @@ export default function ProjectInfo() {
       </Li>
     ));
 
-    const problemSolution = data.pj.workInfo.worked.map((work, index) => (
-      <ProblemBox key={index}>
+    const problemSolution = data.pj.workInfo.worked.map((work) => (
+      <ProblemBox key={work.key}>
         <div className="problem-experience">
           <h3>{work.mainProblem}</h3>
         </div>
@@ -313,7 +324,6 @@ export default function ProjectInfo() {
           </div>
         ) : null}
         <div>
-          {/* 해결과정 */}
           <div className="solution">
             <h3>✨ 해결 과정</h3>
           </div>
@@ -327,7 +337,6 @@ export default function ProjectInfo() {
         </div>
         {work.learningPoint ? (
           <div>
-            {/* 해결하고 얻은것 (있으면) */}
             <div>
               <h3>📚 배운 점</h3>
             </div>
@@ -347,12 +356,8 @@ export default function ProjectInfo() {
           <ImgBox>
             <Img src={data.pj.img} alt="" />
           </ImgBox>
-          {/* DetailInfoBox를 IntroductBox */}
           <DetailInfoBox>
             <SubTitle>{data.pj.type} 프로젝트</SubTitle>
-            {/* 어떤 프로젝트인지 (개인 프로젝트 or 팀 프로젝트) */}
-            {/* 사용 기술을 여기에 */}
-            {/* 간단한 프로젝트 설명. 이 프로젝트는 무엇을 위한 것인지 */}
             <DetailDesc>{data.pj.descDetail}</DetailDesc>
             <ButtonContainer $demo="true">
               {data.pj.demo ? (
@@ -376,9 +381,7 @@ export default function ProjectInfo() {
               <Ul $marginTop={true}>{useTools}</Ul>
             </li>
           </ul>
-          {/* 수정중인 구간 */}
           <ProblemContainer>{problemSolution}</ProblemContainer>
-          {/* 수정중인 구간 */}
         </DetailInfoBox>
         <GoBackBtn
           to={home}

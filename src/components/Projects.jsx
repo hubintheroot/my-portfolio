@@ -116,9 +116,9 @@ export default function Projects(props) {
   const data = props.projects;
 
   // 프로젝트를 담을 div
-  const ProjectCards = (pj, index) => (
+  const ProjectCards = (pj) => (
     <ProjectCard
-      key={index}
+      key={pj.id}
       to={`projects/${pj.id}`}
       state={{ pj }}
       onClick={handleScrollAnchor}

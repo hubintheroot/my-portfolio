@@ -1,5 +1,5 @@
 import AppContent from "../components/AppContent";
-import ProjectInfo from "../pages/DetailProject";
+import ProjectDetail from "../pages/ProjectDetail";
 import Forbidden from "../pages/ForbiddenPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Root from "../pages/Root";
@@ -11,7 +11,7 @@ export const RouterInfo = [
       { path: "*", element: <NotFoundPage /> },
       { path: "/", element: <AppContent /> },
       { path: "/forbidden", element: <Forbidden /> },
-      { path: "/projects/:id", element: <ProjectInfo /> },
+      { path: "/projects/:id", element: <ProjectDetail /> },
     ],
   },
 ];

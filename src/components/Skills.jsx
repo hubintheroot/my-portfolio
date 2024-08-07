@@ -44,10 +44,10 @@ const SubTitleBox = styled.div`
 
 export default function Skills(props) {
   const skills = props.skills;
-  const contents = skills.frontend.map((skill, i) => {
+  const contents = skills.frontend.map((skill) => {
     const level = skill.level.map((lv, i) => <Level key={i}>{lv}</Level>);
     return (
-      <SkillBox key={i}>
+      <SkillBox key={skill.key}>
         <Title>{skill.name}</Title>
         <LevelContainer>{level}</LevelContainer>
       </SkillBox>

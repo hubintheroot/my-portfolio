@@ -4,14 +4,8 @@ import AppHeader from "../components/AppHeader";
 import { useLayoutEffect, useState } from "react";
 
 export default function Root() {
-  // TODO: supabase로 데이터 정리 밑 관리하기
-  // 1. supabase db에 데이터(only text) 저장하기
-  // 2. supabase db를 관리할(post 요청) 로그인 기능 구현(admin 페이지)
-  // 3. supabase db에서 데이터를 가져와(get 요청) 페이지에 노출시키는 기능 구현
-  // 4. 에러 발생 시 처리할 방안 고민하기
   const tmpData = {
     about: {
-      id: "about",
       title: `안녕하세요,
 프론트엔드 개발자
 편상건입니다.`,
@@ -21,21 +15,24 @@ export default function Root() {
     },
     // TODO: 스킬 아이콘은 SVG를 활용하기
     skills: {
-      id: "skills",
       frontend: [
         {
+          key: 1,
           name: "HTML",
           level: ["시맨틱 태그를 이해하고 활용할 수 있습니다."],
         },
         {
+          key: 2,
           name: "CSS",
           level: ["기본 선택자와 가상 클래스, 가상 요소를 다룰 수 있습니다."],
         },
         {
+          key: 3,
           name: "JavaScript",
           level: ["ES6+ 문법을 이해하고 활용할 수 있습니다."],
         },
         {
+          key: 4,
           name: "react",
           level: [
             "hooks를 활용하여 불필요한 렌더링을 줄일 수 있습니다.",
@@ -43,6 +40,7 @@ export default function Root() {
           ],
         },
         {
+          key: 5,
           name: "TypeScript",
           level: [
             "데이터 타입을 지정하여 예상치 못한 오류를 방지할 수 있습니다.",
@@ -51,7 +49,6 @@ export default function Root() {
       ],
     },
     projects: {
-      id: "projects",
       projects: [
         {
           id: 1,
@@ -66,12 +63,13 @@ export default function Root() {
           ],
           img: "/public_assets/projectImgs/portfolio_img.png",
           git: "https://github.com/hubintheroot/my-portfolio",
-          descDetail: `react를 활용하여 제작한 포트폴리오입니다.
-          깔끔하고 직관적인 정보 전달과 효율적인 코드관리를 위해 Styled-Component와 react-icon을 활용하여 디자인했습니다.`,
+          descDetail: `react를 활용하여 컴포넌트의 재사용성을 고려하여 구성한 포트폴리오입니다.
+          깔끔하고 직관적인 정보 전달과 효율적인 코드관리를 위해 css의 컴포넌트화가 용이한 Styled-Components를 사용했습니다.`,
           workInfo: {
             date: "2023.10 ~ ",
             worked: [
               {
+                key: 1,
                 mainProblem: `의도하지 않은 스크롤 이동`,
                 descProblem: `프로젝트 상세 페이지에서 메인 페이지로 이동 시 프로젝트 목록을 보여줘야 했으나 메인 페이지의 최상단으로 스크롤 이동되는 현상을 확인했습니다.`,
                 descCause: `원인은 React Router가 URL과 매칭되는 컴포넌트를 마운트하여 새로운 콘텐츠를 렌더링하면 브라우저가 새로운 콘텐츠의 시작부분을 노출시키기 위해 상단으로 스크롤하는 것으로 확인되었습니다.`,
@@ -81,6 +79,7 @@ export default function Root() {
                 learningPoint: ``,
               },
               {
+                key: 2,
                 mainProblem: `url 접근 시 데이터를 받지 못하는 문제`,
                 descProblem: `url을 통해 프로젝트 상세 페이지에 접근할 때, 프로젝트 데이터를 받아오지 못하는 문제가 발생했습니다.`,
                 descCause: `사용자의 인터렉션을 통해 프로젝트 상세 페이지에 접근할 때 해당 프로젝트의 데이터를 props로 넘겨주는데, 상세 페이지 url로 접근할 경우 데이터를 받지 못하여 발생한 문제임을 확인했습니다.`,
@@ -121,6 +120,7 @@ export default function Root() {
             date: "2024.3 ~ ",
             worked: [
               {
+                key: 1,
                 mainProblem: `OpenAPI 사용량 제한`,
                 descProblem: `다수의 사용자가 OpenAPI 데이터를 가져오지 못하는 문제가 발생했습니다.`,
                 descCause: `OpenAPI의 사용량이 제한되어 발생한 문제임을 확인했습니다.`,
@@ -130,6 +130,7 @@ export default function Root() {
                 learningPoint: ``,
               },
               {
+                key: 2,
                 mainProblem: `중복 데이터 요청 방지`,
                 descProblem: `supabase 데이터를 요청하는 과정이 페이지가 새롭게 렌더링 될 때 마다 반복되는 문제가 발생했습니다.`,
                 descCause: `useEffect를 사용하여 첫 렌더링 이후 데이터 요청이 반복되는 문제는 없었으나, 다른 페이지로 이동 후 돌아올 때 첫 렌더링이 발생하면서 요청했던 데이터를 다시 요청하는 문제임을 확인했습니다.`,
@@ -140,6 +141,7 @@ export default function Root() {
                 learningPoint: ``,
               },
               {
+                key: 3,
                 mainProblem: `로딩 ux 개선`,
                 descProblem: `이미지 로딩이 길어졌을 때 빈 화면에 노출된 사용자의 이탈이 우려되는 문제가 있었습니다.`,
                 descCause: ``,
@@ -149,6 +151,7 @@ export default function Root() {
                 learningPoint: ``,
               },
               {
+                key: 4,
                 mainProblem: `로딩 시간 개선`,
                 descProblem: `정적사이트 배포 서비스를 통해 배포한 프로젝트의 이미지 로딩 시간이 1초 이상 걸리는 문제가 있었습니다.`,
                 descCause: `사용한 정적사이트 배포 서비스인 Netlify의 CDN 서버가 적어, 서버로부터 이미지를 받아와야 하는 구조상 서버와의 물리적 거리가 멀어서 로딩 시간이 길어지는 것을 확인했습니다.`,
